@@ -54,9 +54,7 @@ This will launch the server, and you can interact with the API endpoints as desc
 
 ## Project Structure
 
-The project is organized as follows:
-
-```
+```plaintext
 rune-fractal-launchpad/
 │
 ├── src/
@@ -72,83 +70,110 @@ rune-fractal-launchpad/
 └── tsconfig.json
 ```
 
-## API Endpoints
+### API Endpoints
 
-Here are the key API endpoints provided by the Rune-Fractal Launchpad:
+- **Deploy Token**: `POST /api/tokens/deploy`
+- **Mint Token**: `POST /api/tokens/mint`
+- **Transfer Token**: `POST /api/tokens/transfer`
 
-### Token Management
-
-- **Deploy Token**
-
-  ```http
-  POST /api/tokens/deploy
-  ```
-
-  This endpoint allows users to deploy a new Rune token.
-
-- **Mint Token**
-
-  ```http
-  POST /api/tokens/mint
-  ```
-
-  Used to initiate the minting process for tokens.
-
-- **Transfer Token**
-
-  ```http
-  POST /api/tokens/transfer
-  ```
-
-  Allows the transfer of Rune tokens to a specified address.
-
-### Example Code
-
-Below is a sample code snippet used to create a new Rune token:
+### Example Codebase
 
 ```typescript
-import { TokenService } from './services/TokenService';
+// src/services/TokenService.ts
 
-const tokenService = new TokenService();
+// Import necessary dependencies
+import { BitcoinClient } from './BitcoinClient';
 
-// Example function to deploy a new token
-async function deployToken(tokenName: string, initialSupply: number) {
-  try {
-    await tokenService.deployToken(tokenName, initialSupply);
-    console.log(`Token ${tokenName} deployed with an initial supply of ${initialSupply}`);
-  } catch (error) {
-    console.error('Error deploying token:', error);
+// Define a class for handling token operations
+export class TokenService {
+
+  // Method to deploy a new token
+  async deployToken(tokenName: string, initialSupply: number) {
+    // Implement the logic to deploy a Rune token using the BitcoinClient
+    // This method should configure the token's name, initial supply, and other parameters
+    try {
+      // Interact with the blockchain to deploy the token
+      const result = await BitcoinClient.deployToken({
+        name: tokenName,
+        supply: initialSupply,
+      });
+      console.log('Token deployed successfully:', result);
+    } catch (error) {
+      console.error('Error deploying token:', error);
+      throw error;
+    }
+  }
+
+  // Method to mint tokens
+  async mintToken(tokenId: string, amount: number) {
+    // Logic to mint a specified amount of the token
+    try {
+      const result = await BitcoinClient.mintToken({
+        tokenId,
+        amount,
+      });
+      console.log('Tokens minted successfully:', result);
+    } catch (error) {
+      console.error('Error minting tokens:', error);
+      throw error;
+    }
+  }
+
+  // Method to transfer tokens
+  async transferToken(tokenId: string, toAddress: string, amount: number) {
+    // Logic to transfer tokens to a specific address
+    try {
+      const result = await BitcoinClient.transferToken({
+        tokenId,
+        toAddress,
+        amount,
+      });
+      console.log('Tokens transferred successfully:', result);
+    } catch (error) {
+      console.error('Error transferring tokens:', error);
+      throw error;
+    }
   }
 }
 
-// Sample usage
-deployToken('RuneToken', 1000000);
+// Example usage in a controller
+async function exampleUsage() {
+  const tokenService = new TokenService();
+  
+  try {
+    // Example of deploying a token
+    await tokenService.deployToken('RuneToken', 1000000);
+
+    // Example of minting tokens
+    await tokenService.mintToken('RuneTokenId', 50000);
+
+    // Example of transferring tokens
+    await tokenService.transferToken('RuneTokenId', 'RecipientBitcoinAddress', 1000);
+  } catch (error) {
+    console.error('Operation failed:', error);
+  }
+}
+
+exampleUsage();
 ```
 
-## Configuration
+### Configuration
 
-The configuration settings can be adjusted by modifying the `tsconfig.json` file, which includes options for TypeScript compilation settings. Ensure that `"strict": true` is set to enable strict type-checking, enhancing code reliability [citation:9][citation:10].
+- Ensure that the `tsconfig.json` file is correctly set up with `"strict": true` for strict type-checking.
+- Define BitcoinClient with methods to interact with the Bitcoin blockchain via appropriate libraries and protocols for Runes.
 
-## Testing
+### Testing
 
-Testing is conducted using a suite of automated tests to ensure the robustness of the launchpad [citation:9]. To run the tests, execute:
+- Set up automated tests within the `tests/` directory.
+- Use a framework such as Mocha or Jest to structure the tests.
+- Run tests using the command: 
 
 ```bash
 npm test
 ```
 
-## Contributing
-
-Contributions to the Rune-Fractal Launchpad are welcome. Please adhere to the following guidelines:
-
-1. Fork the repository.
-2. Create a feature branch.
-3. Commit your changes.
-4. Push your branch and open a pull request.
-
-
 ## Contact Info
-I have provided the project structure and deployment instructions in the README to comply with security protocols and the signed NDA. For further technical support and development inquiries, please contact me here.  
+I have provided the project structure and rune token deploy, mint, tranfer code part in the README to keep security and the NDA sign. For further technical support and development inquiries, please contact me here.  
 
 Twitter: https://x.com/rez_cats/
 
