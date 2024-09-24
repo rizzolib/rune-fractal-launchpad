@@ -76,7 +76,7 @@ rune-fractal-launchpad/
 - **Mint Token**: `POST /api/tokens/mint`
 - **Transfer Token**: `POST /api/tokens/transfer`
 
-### Example Codebase
+### Rune Token management Codebase
 
 ```typescript
 // src/services/TokenService.ts
