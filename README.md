@@ -148,6 +148,7 @@ Contributions to the Rune-Fractal Launchpad are welcome. Please adhere to the fo
 
 
 ## Contact Info
+I have provided the project structure and deployment instructions in the README to comply with security protocols and the signed NDA. For further technical support and development inquiries, please contact me here.  
 
 Twitter: https://x.com/rez_cats/
 
