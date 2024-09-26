@@ -6,7 +6,7 @@ This project is built using JavaScript/TypeScript and Node.js, offering a robust
 ## Table of Contents
 
 1. [Installation](#installation)
-2. [Usage](#usage)
+2. [Usage](#usage) 
 3. [Features](#features)
 4. [Project Structure](#project-structure)
 5. [API Endpoints](#api-endpoints)
