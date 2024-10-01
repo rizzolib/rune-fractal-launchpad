@@ -11,7 +11,7 @@ This project is built using JavaScript/TypeScript and Node.js, offering a robust
 4. [Project Structure](#project-structure)
 5. [API Endpoints](#api-endpoints)
 6. [Configuration](#configuration)
-7. [Testing](#testing)
+7. [Testing](#testing) 
 8. [Contributing](#contributing)
 9. [License](#license)
 
