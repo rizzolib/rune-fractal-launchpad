@@ -8,7 +8,7 @@ This project is built using JavaScript/TypeScript and Node.js, offering a robust
 1. [Installation](#installation)
 2. [Usage](#usage) 
 3. [Features](#features) 
-4. [Project Structure](#project-structure)
+4. [Project Structure](#project-structure) 
 5. [API Endpoints](#api-endpoints)
 6. [Configuration](#configuration)
 7. [Testing](#testing) 
